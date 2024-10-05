@@ -1,11 +1,13 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
+import Weather from "./Weather";
 function App() {
   return (
     <div className="App">
-      <div className="container">
-        <h1>Weather App</h1>
-        <footer>
+      <div className="container mb-1">
+        <h1 className="text-center pt-5">Weather App</h1>
+        <Weather />
+        <footer className="text-center mt-1">
           <p>
             This project was coded by{" "}
             <a
