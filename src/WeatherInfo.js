@@ -1,5 +1,6 @@
 import React from "react";
 import FormatDate from "./FormatDate";
+import TempratureConversion from "./TemperatureConversion";
 export default function WeatherInfo(props) {
   return (
     <div className="Weather-Info">
@@ -17,12 +18,9 @@ export default function WeatherInfo(props) {
             alt={props.info.alt}
             className="float-left weather-image "
           />
-          <span className="mt-5 pt-5">
-            <b className="temp">{Math.round(props.info.temperature)}</b>
-            <span className="unit">
-              <b>°</b> <a href="">C</a>|<a href="">F</a>
-            </span>
-          </span>
+          <TempratureConversion
+            celicious={Math.round(props.info.temperature)}
+          />
         </div>
         <div className="col-6">
           <ul>
