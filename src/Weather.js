@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
-import FormatDate from "./FormatDate";
+
 import WeatherInfo from "./WeatherInfo";
-import TempratureConversion from "./TemperatureConversion";
+
 export default function Weather() {
   let [result, setResult] = useState(false);
   let [temperature, setTemperature] = useState("");
