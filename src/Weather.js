@@ -6,7 +6,7 @@ import WeatherInfo from "./WeatherInfo";
 
 export default function Weather() {
   let [result, setResult] = useState(false);
-  let [temperature, setTemperature] = useState("");
+  let [temperature, setTemperature] = useState(null);
   let defaultcity = "London";
   let [city, setCity] = useState(defaultcity);
   let [forecast, setForecast] = useState(null);
@@ -29,7 +29,6 @@ export default function Weather() {
 
   function showForecast(response) {
     setForecast(response.data);
-    //setLoading(false);
   }
 
   function search() {
