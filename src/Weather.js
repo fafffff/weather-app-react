@@ -28,14 +28,7 @@ export default function Weather() {
   }
 
   function showForecast(response) {
-    setForecast({
-      city: response.data.city,
-      icons: response.data.daily[0].condition.icon_url,
-      alts: response.data.daily[0].condition.description,
-      maxTemp: response.data.daily[0].temperature.maximum,
-      minTemp: response.data.daily[0].temperature.minimum,
-      update: new Date(response.data.daily[0].time * 1000),
-    });
+    setForecast(response.data);
     //setLoading(false);
   }
 

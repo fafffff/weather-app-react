@@ -4,7 +4,8 @@
   padding: 16px;
   margin: 30px auto;
   border-radius: 4px;
-  max-width: 800px;
+  max-width: 1000px;
+  height: 500px;
 }
 
 .weather h1 {
