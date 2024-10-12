@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
-
+import DailyForecast from "./DailyForecast";
 import WeatherInfo from "./WeatherInfo";
 
 export default function Weather() {
@@ -9,6 +9,7 @@ export default function Weather() {
   let [temperature, setTemperature] = useState("");
   let defaultcity = "London";
   let [city, setCity] = useState(defaultcity);
+  let [forecast, setForecast] = useState(null);
 
   function showTemperature(response) {
     console.log(response.data.time);
@@ -25,9 +26,27 @@ export default function Weather() {
 
     setResult(true);
   }
+
+  function showForecast(response) {
+    setForecast({
+      city: response.data.city,
+      icons: response.data.daily[0].condition.icon_url,
+      alts: response.data.daily[0].condition.description,
+      maxTemp: response.data.daily[0].temperature.maximum,
+      minTemp: response.data.daily[0].temperature.minimum,
+      update: new Date(response.data.daily[0].time * 1000),
+    });
+    //setLoading(false);
+  }
+
   function search() {
     let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=90c47000f520956f67b7e0t1do4a3be3&units=metric`;
     axios.get(url).then(showTemperature);
+
+    let apiURL = `https://api.shecodes.io/weather/v1/forecast?query=${city}
+            &key=90c47000f520956f67b7e0t1do4a3be3&units=metric`;
+
+    axios.get(apiURL).then(showForecast);
   }
   function handleSubmit(event) {
     event.preventDefault();
@@ -60,6 +79,7 @@ export default function Weather() {
             </div>
           </div>
           <WeatherInfo info={temperature} />
+          <DailyForecast forecast={forecast} />
         </form>
       </div>
     );

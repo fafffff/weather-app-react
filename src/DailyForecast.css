@@ -1,0 +1,7 @@
+.Daily-Forecast {
+  text-align: center;
+}
+.Daily-Forecast .min {
+  opacity: 0.5;
+  margin-left: 5px;
+}
